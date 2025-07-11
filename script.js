@@ -108,8 +108,23 @@ const alphabetNumbers = [
 
 const alphabetMap = new Map(alphabetNumbers);
 
-// console.log(alphabetMap.get("a")); // 1
-// console.log(alphabetMap.get("Z")); // 52
+/*
+OBS:
+Eu fiz esse array bidimensional pois estava tentando buscar uma lógica para 
+filtrar os cupons em ordem alfabética, porém não conseguir fazer uma lógica
+para comparar os valores dos cupons recebidos no input com o array bidimensional.
+A ideia inicial era usar números para criar um ID para o cupom baseado no array bidimensional,
+depois eu usaria esses ID's para rankear de forma crescente os números(letras) dentro de um novo array
+
+ex:
+A palavra "Comida" dentro do primeiro input receberia a atribuição dos números
+baseados no array bidimencional ex: ("C" = 3, "o" = 15, "m" = 13, "i" = 9, "d" = 4, "a" = 1) COMIDA.
+logo, comida receberia o id de 31513941 e seria colocado num "ranking" númerico dentro de um array.
+se todas as palavras recebessem esse tipo de ID, seria simples ordenar por ordem alfabetica baseado apenas na atribuição dos números
+*/
+
+// console.log(alphabetMap.get("A")); // 1
+// console.log(alphabetMap.get("Z")); // 26
 
 const listResults = [];
 
@@ -119,23 +134,15 @@ function results(code, businessLine) {
 
   if (codeValue && businessLineValue) {
     console.log("Cupom válido!");
-    const obj = new Object({
+    const obj = {
       code: String(code).toUpperCase(),
       businessLine: String(businessLine).toUpperCase(),
-    });
+    };
+
     listResults.push(obj);
+    // Ordena por 'code' toda vez que adicionar
+    listResults.sort((a, b) => a.code.localeCompare(b.code));
   } else {
     console.log("Cupom inválido!");
-  }
-  // const listResultsMap = new Array(listResults);
-  // console.log(listResultsMap);
-}
-
-function alphabetFilter(listResults) {
-  const listResultsMap = new Array(listResults);
-  for (let i = 0; i < listResultsMap.length; index++) {
-    if () {
-      
-    }
   }
 }
