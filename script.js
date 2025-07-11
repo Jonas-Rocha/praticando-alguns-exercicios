@@ -77,16 +77,65 @@ const businessLineDefault = [
 ];
 
 const regex = /^[a-zA-Z0-9_]+$/;
+const alphabetNumbers = [
+  ["A", 1],
+  ["B", 2],
+  ["C", 3],
+  ["D", 4],
+  ["E", 5],
+  ["F", 6],
+  ["G", 7],
+  ["H", 8],
+  ["I", 9],
+  ["J", 10],
+  ["K", 11],
+  ["L", 12],
+  ["M", 13],
+  ["N", 14],
+  ["O", 15],
+  ["P", 16],
+  ["Q", 17],
+  ["R", 18],
+  ["S", 19],
+  ["T", 20],
+  ["U", 21],
+  ["V", 22],
+  ["W", 23],
+  ["X", 24],
+  ["Y", 25],
+  ["Z", 26],
+];
+
+const alphabetMap = new Map(alphabetNumbers);
+
+// console.log(alphabetMap.get("a")); // 1
+// console.log(alphabetMap.get("Z")); // 52
+
+const listResults = [];
 
 function results(code, businessLine) {
   let codeValue = regex.test(code);
   let businessLineValue = businessLineDefault.includes(businessLine);
 
-  if (codeValue && businessLineValue === true) {
+  if (codeValue && businessLineValue) {
     console.log("Cupom válido!");
-    const listResults = [code, businessLine];
-    return listResults;
+    const obj = new Object({
+      code: String(code).toUpperCase(),
+      businessLine: String(businessLine).toUpperCase(),
+    });
+    listResults.push(obj);
   } else {
     console.log("Cupom inválido!");
+  }
+  // const listResultsMap = new Array(listResults);
+  // console.log(listResultsMap);
+}
+
+function alphabetFilter(listResults) {
+  const listResultsMap = new Array(listResults);
+  for (let i = 0; i < listResultsMap.length; index++) {
+    if () {
+      
+    }
   }
 }
